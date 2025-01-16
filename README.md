@@ -8,7 +8,7 @@ Abstract: We present the first study on how Multimodal LLMs' (MLLMs) reasoning a
 
 ## Dataset 
 
-**The MM-StyleBench dataset will be avaliable soon.**
+**The MM-StyleBench dataset will be available soon.**
 
 ![fig_dataset](asset/fig_dataset.jpg)
 
