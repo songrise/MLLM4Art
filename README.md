@@ -2,14 +2,15 @@
 TL;DR :fire::fire:: Can MLLMs evaluate the aesthetics of artworks with inference-time reasoning? If so, how? We analyze these issues in this paper, revealing the challenges and offer a strong baseline technique that boost the MLLMs' alignment with human preference.
 
 ---
-Abstract: We present the first study on how Multimodal LLMs' (MLLMs) reasoning ability shall be elicited to evaluate the aesthetics of artworks. To facilitate this investigation, we construct MM-StyleBench, a novel high-quality dataset for benchmarking artistic stylization. We then develop a principled method for human preference modeling and perform a systematic correlation analysis between MLLMs' responses and human preference. Our experiments reveal an inherent hallucination issue of MLLMs in art evaluation,  associated with response subjectivity. ArtCoT is proposed, demonstrating that art-specific task decomposition and the use of concrete language boost MLLMs' reasoning ability for aesthetics. Our findings offer valuable insights into a wide range of downstream applications, such as style transfer and artistic image generation. 
+Abstract: The rapid progress of generative art has democratized the creation of visually pleasing imagery. However, achieving genuine artistic impact - the kind that resonates with viewers on a deeper, more meaningful level - requires a sophisticated aesthetic sensibility. This sensibility involves a multi-faceted reasoning process extending beyond mere visual appeal, which is often overlooked by current computational models. This paper pioneers an approach to capture this complex process by investigating how the reasoning capabilities of Multimodal LLMs (MLLMs) can be effectively elicited for aesthetic judgment. Our analysis reveals a critical challenge: MLLMs exhibit a tendency towards hallucinations during aesthetic reasoning, characterized by subjective opinions and unsubstantiated artistic interpretations. We further demonstrate that these limitations can be overcome by employing an evidence-based, objective reasoning process, as substantiated by our proposed baseline, ArtCoT. MLLMs prompted by this principle produce multi-faceted and in-depth aesthetic reasoning that aligns significantly better with human judgment. These findings have direct applications in areas such as AI art tutoring and as reward models for generative art. Ultimately, our work paves the way for AI systems that can truly understand, appreciate, and generate artworks that align with the sensible human aesthetic standard.
+![fig_teaser](asset/fig_teaser.jpg)
 
 ## Update
-fire::fire:: Jul 05: This work is accepted to ACM MM 2025!
+::fire::fire:: Jul 05: This work is accepted to ACM MM 2025!
 
 ## Dataset 
 
-**The MM-StyleBench dataset will be available soon.**
+**The FineArtBench dataset will be available soon.**
 
 ![fig_dataset](asset/fig_dataset.jpg)
 
