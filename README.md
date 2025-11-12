@@ -10,15 +10,12 @@ TL;DR :book:: How can AI models be truly aligned with the multi-faceted human ae
 
 ![fig_dataset](asset/fig_dataset.jpg)
 
-
+The 1,000 content, 1,000 style, and stylized images from 10 models can be downlowed from the links below:
 **Download Link**: [百度网盘 (Baidu NetDisk)](https://pan.baidu.com/s/1jx4qFMHupZHTwyte6fIUsg?pwd=m481) | [Google Drive](https://drive.google.com/file/d/11Cqfz11TuVB13l6wpVefVEY2_-sfrHYB/view?usp=drive_link)
 
-Please download and extract the dataset. Put it under `data/` folder.
+Please download and extract the dataset. Put it under `data/` folder. The evaluation Code and guide will be released soon.
 
-
-Evaluation Code and guide will be released soon.
 --- 
-
 
 ## ArtCoT
 
