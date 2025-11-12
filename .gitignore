@@ -1,0 +1,14 @@
+
+
+nohup.out
+*.out
+
+.DS_Store
+__pycache__/
+*.pyc
+*.pkl
+*.pth
+*.ckpt
+
+
+vlm_evaluate.py
