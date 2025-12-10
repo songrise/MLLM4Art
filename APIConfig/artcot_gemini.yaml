@@ -1,0 +1,10 @@
+dataset_annotation: /root/autodl-tmp/ICME/data/annotations_250.json
+twoafc_annotation: /root/autodl-tmp/ICME/2afc/2AFC_global_N_5000.json
+twoafc_base_dir: /root/autodl-tmp/ICME/2afc/combined_figures_wcontent_global
+output_dir: /root/autodl-tmp/ICME/2afc/vlm_annotation
+subset_before_split: 0.2
+prompting_method: art_cot
+
+model: gemini-1.5-flash-latest
+exp_name: art_cot_gemini
+ignore_ids: None
