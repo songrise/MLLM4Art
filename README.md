@@ -1,6 +1,7 @@
 
 <h1 align="center">🎨 Multimodal LLMs Can Reason about Aesthetics in Zero-Shot (ACM MM 2025) </h1>
 
+<hr>
 <h3 align="center"> We demonstrate that visual aesthetics can be reasoned in zero-shot, outperforming SOTA image aesthetic assessment models.  </h3>
 
 
@@ -8,20 +9,17 @@
 <div align="center">
   <a href="https://dl.acm.org/doi/10.1145/3746027.3754961">
     <img src="asset/icons/ACMIcon.png" alt="Paper (ACM)" width="160" height="50">
-    <br>
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://arxiv.org/abs/2501.09012">
     <img src="asset/icons/arxivIcon.png" alt="Arxiv" width="160" height="50">
-    <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </a>
-    <a href="https://huggingface.co/datasets/Ruixiang/FineArtBench">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://huggingface.co/datasets/Ruixiang/FineArtBench">
     <img src="asset/icons/hfIcon.png" alt="Arxiv" width="160" height="50">
-    <br>
-
   </a>
 </div>
+
 
 <p align="center"><img src="asset/fig_teaser.png" width="70%"></p>
 
@@ -76,19 +74,19 @@ pip install -r requirements.txt
 ```
 
 
-### Benchmark Custom Models
+### Evaluate Custom Models on FineArtBench
 To test your own local model on the 2AFC tasks of the FineArtBench, please refer to `custom_model_evaluate.py`. Specifically, you shall implement the `Evaluator` interface with your own model inference logic and map the model prediction to pairwise judgment.  Then you can run the benchmark with the following command:
 
 ```bash
 python custom_model_evaluate.py 
 ```
 
-To test API-based MLLMs, please refer to `mllm_API_evaluate.py`. You need to set up your own API key and base URL in the script. The exemplar config can be found in `./APIConfig/`. Then you can run the benchmark with the following command:
+To test API-based MLLMs (e.g. ChatGPT), please refer to `mllm_API_evaluate.py`. You need to set up your own API key and base URL in the script. The exemplar config can be found in `./APIConfig/`. Then you can run the benchmark with the following command:
 ```bash
 python mllm_API_evaluate.py --config <REPLACE_WITH_YOUR_CONFIG_PATH>
 ```
 
-The expected output is a JSON file in the same format as `./data/2AFC/2AFC_global_N_5000.json`, but with the `winner` field filled in according to your model's predictions.
+The expected output is a JSON file in the same format as `./data/2AFC/2AFC_global_N_5000.json`, but with the `winner` field filled according to your model's predictions.
 
 ### Benchmark Correlation Performance
 
@@ -99,9 +97,9 @@ python benchmark.py --human_annotation <PATH_TO_HUMAN_ANNOTATION_JSON> \
 --model_annotation <PATH_TO_YOUR_MODEL_PREDICTION_JSON> --mode <global/instance>
 ```
 
-The `--human_annotation` annotation can be found in `./data/human_annotation/` folder. The `mode` argument specifies whether to compute global (per-artist) correlation or instance-level (per-task) correlation, which corresponds to the two columns in Table 1 of our [paper](https://dl.acm.org/doi/10.1145/3746027.3754961).
+The `--human_annotation` annotation can be found in `./data/human_annotation/` folder. The `--mode` argument specifies whether to compute global (per-artist) correlation or instance-level (per-task) correlation, which corresponds to the two columns in Table 1 of our [paper](https://dl.acm.org/doi/10.1145/3746027.3754961). For the global correlation, please always report the score under 5 random splits.
 
-The annotation files without `_paper` suffix are recommended, which contains 40% more annotations and with additional quality control. For exactly reproducing the results in our paper, please use the files with `_paper` suffix.
+For human annotation the json files without `_paper` suffix are recommended, which contains 40% more annotations and with additional quality control. For exactly reproducing the results as in our paper, please use the files with `_paper` suffix.
 
 </details>
 
