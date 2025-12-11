@@ -34,10 +34,10 @@
  The FineArtBench is by far the largest and most comprehensive benchmark for evaluating aesthetics-judgment ability on fineArts. It contains 1,000, 1,000 content image and style respectively with high-quality human semantic and judgment annotations.
 
 
----
+
 
 <details>
-<summary><h2>⬇️ Download Guide (Click to Expand)</h2></summary>
+<summary><h3>⬇️ Download Guide (Click to Expand)</h2></summary>
 
 ### Option 1: via HuggingFace Hub 
 First, ensure you have stable connection to huggingface. The dataset can be found at this [link](https://huggingface.co/datasets/Ruixiang/FineArtBench). You can use the following code to download the dataset programmatically:
@@ -61,10 +61,9 @@ MLLM4Art/
 ```
 </details>
 
----
 
 <details>
-<summary><h2>🛠️ Benchmark Guide (Click to Expand)</h2></summary>
+<summary><h3>🛠️ Benchmark Guide (Click to Expand)</h2></summary>
 
 ### Environment Setup
 Create a virtural environment and install the required packages:
@@ -74,7 +73,7 @@ pip install -r requirements.txt
 ```
 
 
-### Evaluate Custom Models on FineArtBench
+### Evaluate Custom Aesthetic Evaluators on FineArtBench
 To test your own local model on the 2AFC tasks of the FineArtBench, please refer to `custom_model_evaluate.py`. Specifically, you shall implement the `Evaluator` interface with your own model inference logic and map the model prediction to pairwise judgment.  Then you can run the benchmark with the following command:
 
 ```bash
@@ -86,7 +85,7 @@ To test API-based MLLMs (e.g. ChatGPT), please refer to `mllm_API_evaluate.py`. 
 python mllm_API_evaluate.py --config <REPLACE_WITH_YOUR_CONFIG_PATH>
 ```
 
-The expected output is a JSON file in the same format as `./data/2AFC/2AFC_global_N_5000.json`, but with the `winner` field filled according to your model's predictions.
+The expected output is a JSON file in the same format as `./data/2AFC/2AFC_global_N_5000.json`, but with the `winner` field filled according to your model's predictions. I suggest always evaluate all 5,000 pairwise tasks, as the correlation script will handle the missing human annotations.
 
 ### Benchmark Correlation Performance
 
@@ -97,7 +96,7 @@ python benchmark.py --human_annotation <PATH_TO_HUMAN_ANNOTATION_JSON> \
 --model_annotation <PATH_TO_YOUR_MODEL_PREDICTION_JSON> --mode <global/instance>
 ```
 
-The `--human_annotation` annotation can be found in `./data/human_annotation/` folder. The `--mode` argument specifies whether to compute global (per-artist) correlation or instance-level (per-task) correlation, which corresponds to the two columns in Table 1 of our [paper](https://dl.acm.org/doi/10.1145/3746027.3754961). For the global correlation, please always report the score under 5 random splits.
+The `--human_annotation` annotation can be found in `./data/human_annotation/` folder. The `--mode` argument specifies whether to compute global (per-artist) correlation or instance-level (per-task) correlation, which corresponds to the two columns in Table 1 of our [paper](https://dl.acm.org/doi/10.1145/3746027.3754961). For the global correlation, please always report the score under 5 random splits. 
 
 For human annotation the json files without `_paper` suffix are recommended, which contains 40% more annotations and with additional quality control. For exactly reproducing the results as in our paper, please use the files with `_paper` suffix.
 

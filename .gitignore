@@ -17,4 +17,4 @@ out/
 
 data
 
-*.py
+mllm_API_evaluate.py
