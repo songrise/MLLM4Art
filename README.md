@@ -1,23 +1,55 @@
-# 🎨 Multimodal LLMs Can Reason about Aesthetics in Zero-Shot | [Paper](https://dl.acm.org/doi/10.1145/3746027.3754961) |[Arxiv](https://arxiv.org/abs/2501.09012) 
-TL;DR :book:: How can AI models be truly aligned with the multi-faceted human aesthetic judgment? This paper points out that zero-shot reasoning with MLLMs as a promising solution. Extensive experiment reveals that zero-shot aesthetic reasoning outperform the SOTA image aesthetic assessment models, even without any training. 
-![fig_teaser](asset/fig_teaser.png)
+
+<h1 align="center">🎨 Multimodal LLMs Can Reason about Aesthetics in Zero-Shot (ACM MM 2025) </h1>
+
+<h3 align="center"> We demonstrate that visual aesthetics can be reasoned in zero-shot, outperforming SOTA image aesthetic assessment models.  </h3>
+
+
+
+<div align="center">
+  <a href="https://dl.acm.org/doi/10.1145/3746027.3754961">
+    <img src="asset/icons/ACMIcon.png" alt="Paper (ACM)" width="160" height="50">
+    <br>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://arxiv.org/abs/2501.09012">
+    <img src="asset/icons/arxivIcon.png" alt="Arxiv" width="160" height="50">
+    <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+    <a href="https://huggingface.co/datasets/Ruixiang/FineArtBench">
+    <img src="asset/icons/hfIcon.png" alt="Arxiv" width="160" height="50">
+    <br>
+
+  </a>
+</div>
+
+<p align="center"><img src="asset/fig_teaser.png" width="70%"></p>
+
 ---
 
-## Update
-:fire::fire:: Jul 05: This work is accepted to ACM MM 2025!
-
-## The FineArtBench Dataset 
+## 🖼️ The FineArtBench Dataset 
 
 ![fig_dataset](asset/fig_dataset.jpg)
-The FineArtBench is by far the largest and most comprehensive benchmark for evaluating aesthetics-judgment ability on fineArts. It contains 1,000, 1,000 content image and style respectively with high-quality human semantic and judgment annotations.
+
+
+
+ The FineArtBench is by far the largest and most comprehensive benchmark for evaluating aesthetics-judgment ability on fineArts. It contains 1,000, 1,000 content image and style respectively with high-quality human semantic and judgment annotations.
+
+
 ---
 
 <details>
-<summary><h2>Download Guide (Click to Expand)</h2></summary>
-### HuggingFace Dataset
-TODO: Upload the dataset to HuggingFace and provide the link here.
+<summary><h2>⬇️ Download Guide (Click to Expand)</h2></summary>
 
-### Manual Download
+### Option 1: via HuggingFace Hub 
+First, ensure you have stable connection to huggingface. The dataset can be found at this [link](https://huggingface.co/datasets/Ruixiang/FineArtBench). You can use the following code to download the dataset programmatically:
+
+```python
+from datasets import load_dataset
+dataset = load_dataset("Ruixiang/FineArtBench")
+```
+
+### Option 2: via Manual Download
 **Download Link**: [百度网盘 (Baidu NetDisk)](https://pan.baidu.com/s/1jx4qFMHupZHTwyte6fIUsg?pwd=m481) | [Google Drive](https://drive.google.com/file/d/11Cqfz11TuVB13l6wpVefVEY2_-sfrHYB/view?usp=drive_link)
 
 After downloading, please extract the dataset and put it under the `data/` folder of the root directory. The directory structure should be as follows:
@@ -34,7 +66,14 @@ MLLM4Art/
 ---
 
 <details>
-<summary><h2>Benchmark Guide (Click to Expand)</h2></summary>
+<summary><h2>🛠️ Benchmark Guide (Click to Expand)</h2></summary>
+
+### Environment Setup
+Create a virtural environment and install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
 
 
 ### Benchmark Custom Models
@@ -56,7 +95,8 @@ The expected output is a JSON file in the same format as `./data/2AFC/2AFC_globa
 Once you have the model predictions in the required JSON format, you can evaluate the correlation performance with human judgments using `benchmark.py`. This is the script that gives you the quantitative scores (correlation and statistical significance). You can run the benchmark with the following command:
 
 ```bash
-python benchmark.py --human_annotation <PATH_TO_HUMAN_ANNOTATION_JSON> --model_annotation <PATH_TO_YOUR_MODEL_PREDICTION_JSON> --mode <global/instance>
+python benchmark.py --human_annotation <PATH_TO_HUMAN_ANNOTATION_JSON> \
+--model_annotation <PATH_TO_YOUR_MODEL_PREDICTION_JSON> --mode <global/instance>
 ```
 
 The `--human_annotation` annotation can be found in `./data/human_annotation/` folder. The `mode` argument specifies whether to compute global (per-artist) correlation or instance-level (per-task) correlation, which corresponds to the two columns in Table 1 of our [paper](https://dl.acm.org/doi/10.1145/3746027.3754961).
@@ -67,9 +107,9 @@ The annotation files without `_paper` suffix are recommended, which contains 40%
 
 --- 
 
-## The ArtCoT
+## 🚀 The ArtCoT for Human-Aligned Aesthetic Reasoning
 
 We propose ArtCoT to enhance the inference-time reasoning capability of MLLMs on aesthetic judgment. An example conversation is provided below. Detailed quantitative comparison can be found in [paper](https://dl.acm.org/doi/10.1145/3746027.3754961). The full response from MLLMs in our experiments will also be released to facilitate further research.
-
+![fig_example_style](asset/artcotResult.png)
 
 ![fig_example_style](asset/fig_example_style.jpg)

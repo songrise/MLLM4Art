@@ -1,0 +1,14 @@
+huggingface_hub==0.32.4
+networkx==3.3
+numpy==2.3.5
+omegaconf==2.3.0
+openai==2.9.0
+pandas==2.3.3
+Pillow==12.0.0
+scipy==1.16.3
+spacy==3.8.11
+textblob==0.19.0
+torch==2.2.1
+torch==2.3.0+cu121
+tqdm==4.67.1
+transformers==4.51.3
